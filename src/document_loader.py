@@ -37,10 +37,10 @@ class DocumentLoader:
         return entries
 
 
-doc = DocumentLoader()
-chunked_doc = doc.run(Path("../data/compliance_references/SAMPLE_DATA_NOTES.md"))
-
-print(chunked_doc)
+# doc = DocumentLoader()
+# chunked_doc = doc.run(Path("../data/compliance_references/SAMPLE_DATA_NOTES.md"))
+#
+# print(chunked_doc)
 
 
 

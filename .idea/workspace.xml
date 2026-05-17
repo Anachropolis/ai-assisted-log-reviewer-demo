@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9ab6ef4-ef30-4bd6-b427-c766d8ee2410" name="Changes" comment="initial commit:&#10;-file structure created&#10;-feat: document_loader and mock_api logic added">
+    <list default="true" id="e9ab6ef4-ef30-4bd6-b427-c766d8ee2410" name="Changes" comment="fix: minor refactor of document_loader">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/document_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/document_loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/llm_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/llm_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reviewer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/reviewer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vector_store.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/vector_store.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,18 +26,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Anachropolis"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Anachropolis&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Anachropolis/ai-assisted-log-reviewer-demo.git",
-    "accountId": "3bf5ce14-9dac-451e-9824-fa5952f437b4"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Anachropolis/ai-assisted-log-reviewer-demo.git&quot;,
+    &quot;accountId&quot;: &quot;3bf5ce14-9dac-451e-9824-fa5952f437b4&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -49,6 +51,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.api_client.executor": "Run",
     "Python.document_loader.executor": "Run",
+    "Python.llm_client.executor": "Run",
     "Python.mock_log_api.executor": "Run",
     "Python.vector_store.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -80,11 +83,40 @@
       <option name="project" value="LOCAL" />
       <updated>1778945321165</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: added logic for vector_store module">
+      <option name="closed" value="true" />
+      <created>1778981769521</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1778981769521</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fix: minor refactor of document_loader">
+      <option name="closed" value="true" />
+      <created>1778981794313</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1778981794313</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit:&#10;-file structure created&#10;-feat: document_loader and mock_api logic added" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit:&#10;-file structure created&#10;-feat: document_loader and mock_api logic added" />
+    <MESSAGE value="feat: added logic for vector_store module" />
+    <MESSAGE value="fix: minor refactor of document_loader" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: minor refactor of document_loader" />
   </component>
 </project>
