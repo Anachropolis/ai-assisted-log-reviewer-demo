@@ -1,10 +1,14 @@
 import requests
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 class ApiClient:
 
     def __init__(self):
-        self.base_url = "http://127.0.0.1:8000"
+        self.base_url = os.getenv("MOCK_API_BASE_URL")
 
     def fetch_operator_log(self, endpoint: str, entry: str) -> dict:
 

@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9ab6ef4-ef30-4bd6-b427-c766d8ee2410" name="Changes" comment="fix: minor refactor of document_loader">
+    <list default="true" id="e9ab6ef4-ef30-4bd6-b427-c766d8ee2410" name="Changes" comment="fix: minor refactor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/api_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/document_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/document_loader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/llm_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/llm_client.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/reviewer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/reviewer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vector_store.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/vector_store.py" afterDir="false" />
     </list>
@@ -50,6 +51,7 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.api_client.executor": "Run",
+    "Python.app.executor": "Run",
     "Python.document_loader.executor": "Run",
     "Python.llm_client.executor": "Run",
     "Python.mock_log_api.executor": "Run",
@@ -99,7 +101,31 @@
       <option name="project" value="LOCAL" />
       <updated>1778981794313</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat: add logic to llm_client">
+      <option name="closed" value="true" />
+      <created>1779053730043</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1779053730043</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: add logic to reviewer">
+      <option name="closed" value="true" />
+      <created>1779053742550</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1779053742550</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix: minor refactor">
+      <option name="closed" value="true" />
+      <created>1779053764018</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1779053764018</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -117,6 +143,9 @@
     <MESSAGE value="initial commit:&#10;-file structure created&#10;-feat: document_loader and mock_api logic added" />
     <MESSAGE value="feat: added logic for vector_store module" />
     <MESSAGE value="fix: minor refactor of document_loader" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: minor refactor of document_loader" />
+    <MESSAGE value="feat: add logic to llm_client" />
+    <MESSAGE value="feat: add logic to reviewer" />
+    <MESSAGE value="fix: minor refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: minor refactor" />
   </component>
 </project>

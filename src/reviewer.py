@@ -67,7 +67,7 @@ class LogReviewer:
     def __init__(self, llm_client: LLMClient) -> None:
         self.llm_client = llm_client
 
-    def review_log_entry(self, log: str, retrieved_references: list[dict]) -> dict:
+    def review_log_entry(self, log: dict, retrieved_references: list[dict]) -> dict:
         user_prompt = build_review_prompt(log, retrieved_references)
         response = self.llm_client.query_model(system_prompt = SYSTEM_PROMPT, user_prompt = user_prompt)
         return json.loads(response)

@@ -1,7 +1,7 @@
 from langchain_text_splitters import MarkdownHeaderTextSplitter
 import uuid_utils as uuid
-import glob
 from pathlib import Path
+
 
 HEADERS = [("#", "Header 1"),
            ("##", "Header 2"),
