@@ -16,6 +16,7 @@ Return valid JSON only.
 """
 
 def format_retrieved_context(references: list[dict]) -> str:
+    """Format retrieved reference material"""
     formatted_sections = []
 
     for index, reference in enumerate(references, start=1):
@@ -59,6 +60,9 @@ Return JSON in this structure:
   "suggested_follow_up_questions": ["..."],
   "review_note": "..."
 }}
+
+Do not wrap the JSON in markdown fences.
+Do not include commentary before or after the JSON.
 """
 
 
@@ -67,7 +71,8 @@ class LogReviewer:
     def __init__(self, llm_client: LLMClient) -> None:
         self.llm_client = llm_client
 
-    def review_log_entry(self, log: dict, retrieved_references: list[dict]) -> dict:
-        user_prompt = build_review_prompt(log, retrieved_references)
+    def review_log_entry(self, log_entry: dict, retrieved_references: list[dict]) -> dict:
+        """Take log entry and relevant references and feed to AI for review"""
+        user_prompt = build_review_prompt(log_entry, retrieved_references)
         response = self.llm_client.query_model(system_prompt = SYSTEM_PROMPT, user_prompt = user_prompt)
         return json.loads(response)

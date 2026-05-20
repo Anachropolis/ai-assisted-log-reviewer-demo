@@ -6,33 +6,55 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-client = chromadb.PersistentClient(path="../data/compliance_references/compliance_db")
-collection = client.get_or_create_collection("compliance_references")
-
 class VectorStore:
 
     def __init__(self) -> None:
-        self.client = chromadb.PersistentClient(os.getenv("CHROMA_PERSIST_DIR"))
-        self.collection = client.get_or_create_collection("CHROMA_COLLECTION_NAME")
+        self.persist_dir = os.getenv("CHROMA_PERSIST_DIR", "chroma_db")
+        self.collection_name = os.getenv("CHROMA_COLLECTION_NAME", "compliance_references")
+
+        self.client = chromadb.PersistentClient(path=self.persist_dir)
+        self.collection = self.client.get_or_create_collection(self.collection_name)
+
+
 
     def vectorize_data(self, documents: dict) -> None:
+        """Convert data into vector format and store in DB"""
+        self.collection.add(documents=documents["content"],
+                            metadatas=documents["metadata"],
+                            ids=documents["ids"])
 
-        self.collection.add(documents=documents["content"], metadatas=documents["metadata"],ids=documents["ids"])
+
 
     def retrieve_relevant_references(self, query: str, top_k: int = 3) -> list[dict]:
-        references = self.collection.query(query_texts = query, n_results = top_k)
-        titles = [title["Header 1"] for title in references["metadatas"][0]]
-        content = references["documents"][0]
-        response = [{"title": title, "content": content, "source_file":f"{title}.md"} for title, content in zip(titles, content)]
+        """Retrieve relevant references from a query"""
+        results = self.collection.query(query_texts = query,
+                                        n_results = top_k)
+        references = []
+        documents = results["documents"][0]
+        metadatas = results["metadatas"][0]
+
+        for document, metadata in zip(documents, metadatas):
+            references.append({
+                "title" : metadata.get("Header 1", "Unknown Reference"),
+                "section": metadata.get("Header 2", ""),
+                "source_file": metadata.get("source_file", "Unknown"),
+                "content": document,
+            })
+
+        return references
 
 
-        return response
+
+    def reset_collection(self) -> None:
+        """Reset collection"""
+        collection_name = os.getenv("CHROMA_COLLECTION_NAME", "compliance_references")
+        try:
+            self.client.delete_collection(collection_name)
+        except Exception:
+            pass
+
+        self.collection = self.client.get_or_create_collection(self.collection_name)
 
 
 
-# doc = DocumentLoader()
-# doc_chunks = doc.run(Path("../data/compliance_references/logkeeping_requirements.md"))
-# vector_store = VectorStore(Path("../data/compliance_db"), "compliance_references")
-# vector_store.vectorize_data(doc_chunks)
-# results = vector_store.collection.query(query_texts="Tell me what log entries should include", n_results=1)
-# print(results["documents"])
+
