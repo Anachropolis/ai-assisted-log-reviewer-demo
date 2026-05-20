@@ -8,8 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/api_client.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/document_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/document_loader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reviewer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/reviewer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vector_store.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/vector_store.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,21 +45,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.api_client.executor": "Run",
-    "Python.app.executor": "Run",
-    "Python.document_loader.executor": "Run",
-    "Python.llm_client.executor": "Run",
-    "Python.mock_log_api.executor": "Run",
-    "Python.vector_store.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.api_client.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.document_loader.executor&quot;: &quot;Run&quot;,
+    &quot;Python.llm_client.executor&quot;: &quot;Run&quot;,
+    &quot;Python.mock_log_api.executor&quot;: &quot;Run&quot;,
+    &quot;Python.vector_store.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -125,7 +123,31 @@
       <option name="project" value="LOCAL" />
       <updated>1779053764018</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat: added preliminary logic for main app module">
+      <option name="closed" value="true" />
+      <created>1779146237420</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1779146237420</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix: refactor code so vector retrieval produces list of dictionaries">
+      <option name="closed" value="true" />
+      <created>1779146343216</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1779146343216</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix: minor refactor">
+      <option name="closed" value="true" />
+      <created>1779146359892</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1779146359892</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -145,6 +167,8 @@
     <MESSAGE value="fix: minor refactor of document_loader" />
     <MESSAGE value="feat: add logic to llm_client" />
     <MESSAGE value="feat: add logic to reviewer" />
+    <MESSAGE value="feat: added preliminary logic for main app module" />
+    <MESSAGE value="fix: refactor code so vector retrieval produces list of dictionaries" />
     <MESSAGE value="fix: minor refactor" />
     <option name="LAST_COMMIT_MESSAGE" value="fix: minor refactor" />
   </component>
