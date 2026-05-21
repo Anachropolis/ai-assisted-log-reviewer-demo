@@ -16,7 +16,7 @@ async def get_logs(log_id) -> object:
             log_list = json.load(file)
 
     for log in log_list:
-        if log_id == log["log_id"]:
+        if log_id.upper() == log["log_id"]:
             return log
 
     return {"no log found"}

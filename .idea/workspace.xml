@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9ab6ef4-ef30-4bd6-b427-c766d8ee2410" name="Changes" comment="fix: major refactor of all project modules">
-      <change afterPath="$PROJECT_DIR$/docs/PROJECT_BRIEF.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/SAMPLE_OUTPUT.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/WORKFLOW.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="e9ab6ef4-ef30-4bd6-b427-c766d8ee2410" name="Changes" comment="add README and workflow documentation for AI log review demo&quot;">
+      <change beforePath="$PROJECT_DIR$/src/mock_log_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/mock_log_api.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +174,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779318739006</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="add README and workflow documentation for AI log review demo&quot;">
+      <option name="closed" value="true" />
+      <created>1779320866381</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1779320866381</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -203,6 +207,7 @@
     <MESSAGE value="fix: minor refactor" />
     <MESSAGE value="feat: add main cli logic" />
     <MESSAGE value="fix: major refactor of all project modules" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: major refactor of all project modules" />
+    <MESSAGE value="add README and workflow documentation for AI log review demo&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="add README and workflow documentation for AI log review demo&quot;" />
   </component>
 </project>
