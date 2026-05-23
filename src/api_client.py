@@ -17,4 +17,9 @@ class ApiClient:
         response.raise_for_status()
         return response.json()
 
+    def fetch_log_list(self, endpoint: str) -> dict:
+        """Fetch all logs from API endpoint"""
+        url = f"{self.base_url}/{endpoint.strip('/')}"
+        response = (requests.get(url, timeout=10))
+        return response.json()
 
