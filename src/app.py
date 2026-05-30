@@ -16,8 +16,8 @@ def cli():
     parser = ArgumentParser(description="AI Log Reviewer Demo")
     parser.add_argument("--log_id", default="LOG-1003", help="The unique id of the log")
     parser.add_argument("--endpoint", default="operator-logs", help="The API endpoint used to query logs")
-    parser.add_argument("--docs_dir", default="../data/compliance_references", help="The directory containing compliance documents")
-    parser.add_argument("--output", default="../data/sample_output/log_review_report.json", help="Output filepath with filename")
+    parser.add_argument("--docs_dir", default=Path("../data/compliance_references").resolve(), help="The directory containing compliance documents")
+    parser.add_argument("--output", default=Path("../data/sample_output/log_review_report.json").resolve(), help="Output filepath with filename")
 
     return parser.parse_args()
 
