@@ -1,5 +1,5 @@
 import json
-from llm_client import LLMClient
+from review_module.llm_client import LLMClient
 
 
 SYSTEM_PROMPT = """

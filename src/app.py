@@ -1,10 +1,10 @@
 from argparse import ArgumentParser
-from api_client import ApiClient
+from api_module.api_client import ApiClient
 from pathlib import Path
-from document_loader import DocumentLoader
-from llm_client import LLMClient
-from vector_store import VectorStore
-from reviewer import LogReviewer
+from ingest_module.document_loader import DocumentLoader
+from review_module.llm_client import LLMClient
+from ingest_module.vector_store import VectorStore
+from review_module.reviewer import LogReviewer
 from reporters import FileWriter
 
 
@@ -16,8 +16,8 @@ def cli():
     parser = ArgumentParser(description="AI Log Reviewer Demo")
     parser.add_argument("--log_id", default="LOG-1003", help="The unique id of the log")
     parser.add_argument("--endpoint", default="operator-logs", help="The API endpoint used to query logs")
-    parser.add_argument("--docs_dir", default="data/compliance_references", help="The directory containing compliance documents")
-    parser.add_argument("--output", default="data/sample_output/log_review_report.json", help="Output filepath with filename")
+    parser.add_argument("--docs_dir", default="../data/compliance_references", help="The directory containing compliance documents")
+    parser.add_argument("--output", default="../data/sample_output/log_review_report.json", help="Output filepath with filename")
 
     return parser.parse_args()
 

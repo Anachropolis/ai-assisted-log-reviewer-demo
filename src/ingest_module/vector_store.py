@@ -3,13 +3,14 @@ import os
 from dotenv import load_dotenv
 
 
+
 load_dotenv()
 
 
 class VectorStore:
 
     def __init__(self) -> None:
-        self.persist_dir = os.getenv("CHROMA_PERSIST_DIR", "chroma_db")
+        self.persist_dir = os.getenv("CHROMA_PERSIST_DIR", "data/chroma_db")
         self.collection_name = os.getenv("CHROMA_COLLECTION_NAME", "compliance_references")
 
         self.client = chromadb.PersistentClient(path=self.persist_dir)

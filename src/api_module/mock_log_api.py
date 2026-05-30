@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from pathlib import Path
 import json
 
-LOGS = Path(__file__).resolve().parents[1] / "data" / "sample_input" / "operator_logs.json"
+LOGS = Path(__file__).resolve().parents[2] / "data" / "sample_input" / "operator_logs.json"
 
 
 app = FastAPI(title="Operator Log API",
