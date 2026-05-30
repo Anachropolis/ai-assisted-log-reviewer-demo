@@ -1,80 +1,68 @@
-
 # AI-Assisted Operator Log Review Demo
 
-A Python AI workflow demo that retrieves relevant compliance-style reference material for operator log entries and suggests missing information, follow-up questions, and review notes for human review.
+A Python RAG application that helps human reviewers evaluate operational log entries against compliance-style reference documentation.
 
-This project demonstrates a retrieval-augmented generation (RAG) workflow for operational documentation review. It uses a mock operator log API, local reference documents, vector search, and an LLM to produce structured review guidance.
+The project uses a mock FastAPI log source, a document ingestion pipeline, ChromaDB vector search, an OpenAI-powered review workflow, and a Streamlit dashboard for viewing and exporting structured review reports.
 
-The tool does **not** determine compliance. It is designed as a human-in-the-loop assistant that helps reviewers identify relevant references and possible documentation gaps.
-
----
-
-## Overview
-
-Operations teams often create logs during abnormal conditions, communications issues, equipment status changes, procedure activations, and post-event reviews.
-
-Those logs may need to be reviewed against internal procedures, compliance-style references, or documentation standards. Manually searching through reference material is time-consuming and can lead to missed follow-up items.
-
-This project automates part of that review process by:
-
-1. Pulling a fake operator log from a mock API.
-2. Loading local compliance-style reference documents.
-3. Indexing the reference documents in a vector database.
-4. Retrieving reference sections relevant to the log entry.
-5. Sending the log and retrieved context to an LLM.
-6. Generating a structured review report.
-
-The result is a decision-support report that helps a human reviewer focus on relevant references, possible missing information, and follow-up questions.
+This tool does **not** determine compliance. It is designed as a human-in-the-loop assistant that retrieves potentially relevant reference material and suggests follow-up items for qualified review.
 
 ---
 
-## Business Problem
+## Project Overview
 
-Operational logs often contain important details about events, actions, notifications, equipment status, and follow-up work.
+Operations teams often create logs during abnormal conditions, communication issues, equipment status changes, procedure activations, alarm reviews, and post-event follow-up.
 
-However, reviewing logs manually can be difficult when:
+Those logs may need to be reviewed against internal procedures, documentation standards, or compliance-style references. Manually searching reference material can be slow and inconsistent, especially when logs omit details such as notification time, final status, owner, approval, restoration time, or corrective action tracking.
 
-- Reference documentation is spread across multiple documents.
-- The reviewer must search for relevant procedures or documentation expectations.
-- Logs may omit key information such as notification times, restoration status, owners, or closeout details.
-- The review process needs to be consistent and repeatable.
-- The user needs guidance, not a raw document search result.
+This project demonstrates how retrieval-augmented generation can support that workflow by:
 
-This project demonstrates how AI and retrieval can support that workflow without replacing human judgment.
+1. Pulling a selected operator log from a mock API.
+2. Retrieving relevant reference documentation from a local vector store.
+3. Sending the log and retrieved context to an LLM.
+4. Producing a structured review report.
+5. Displaying the result in a Streamlit dashboard.
 
 ---
 
-## Solution
+## Project Components
 
-The tool uses a retrieval-augmented generation workflow.
+This project includes four related components.
 
-Instead of asking the LLM to answer from memory, the project first retrieves relevant reference material from local documents. The retrieved context is then passed to the LLM along with the operator log.
+### 1. Mock Operator Log API
 
-The LLM is instructed to return structured JSON containing:
+Located in `src/api_module/`, this FastAPI service simulates an external operator log system.
 
-- A summary of the log entry
-- Relevant reference documents
-- Why each reference may apply
-- Possible missing information
-- Suggested follow-up questions
-- A human-review note
+Example endpoint:
 
-This keeps the workflow focused, explainable, and grounded in retrieved reference material.
+```text
+GET /operator-logs/{log_id}
+```
+
+### 2. Reference Document Ingestion
+
+Located in `src/ingest_module/`, this workflow loads compliance-style markdown documents, splits them into chunks, and stores them in ChromaDB.
+
+### 3. AI Review Workflow
+
+Located in `src/review_module/`, this workflow combines an operator log with retrieved reference context and sends it to an LLM for structured review output.
+
+### 4. Streamlit Dashboard
+
+Located in `src/streamlit_app_homepage.py` and `src/pages/`, this interface lets reviewers select logs, run reviews, view generated reports, and export results.
 
 ---
 
 ## Features
 
-- Mock FastAPI endpoint for fake operator logs
-- API client for pulling a specific log entry
+- Mock FastAPI endpoint for fictional operator logs
+- API client for pulling a selected log entry
 - Markdown document loading and chunking
-- Local vector database using ChromaDB
-- Retrieval of relevant compliance-style reference sections
-- OpenAI API integration
-- Structured JSON review output
-- Output report written to local file
+- ChromaDB vector store for reference retrieval
+- OpenAI API integration for structured review generation
+- Streamlit dashboard for user-facing review
+- JSON review report output
 - Environment variable support using `.env`
-- Human-in-the-loop positioning to avoid overclaiming compliance decisions
+- Human-in-the-loop design that avoids compliance overclaiming
 
 ---
 
@@ -82,40 +70,37 @@ This keeps the workflow focused, explainable, and grounded in retrieved referenc
 
 - Python
 - FastAPI / Uvicorn
-- Requests
+- Streamlit
 - ChromaDB
 - OpenAI API
 - LangChain document utilities
+- Requests
 - python-dotenv
+- Pydantic
 
 ---
 
 ## Project Structure
 
 ```text
-ai-assisted-log-review-demo/
+ai-assisted-log-reviewer-demo/
 │
-├── src/
-│   ├── app.py
-│   ├── mock_log_api.py
-│   ├── api_client.py
-│   ├── document_loader.py
-│   ├── vector_store.py
-│   ├── llm_client.py
-│   ├── reviewer.py
-│   └── reporters.py
+├── README.md
+├── pyproject.toml
+├── .env.example
+├── .gitignore
 │
 ├── data/
 │   ├── sample_input/
 │   │   └── operator_logs.json
 │   │
 │   ├── compliance_references/
+│   │   ├── alarm_review_and_closeout.md
 │   │   ├── communication_failure_response.md
 │   │   ├── emergency_procedure_activation.md
 │   │   ├── event_notification_requirements.md
-│   │   ├── switching_and_work_control.md
 │   │   ├── logkeeping_requirements.md
-│   │   └── alarm_review_and_closeout.md
+│   │   └── switching_and_work_control.md
 │   │
 │   └── sample_output/
 │       └── sample_log_review_report.json
@@ -124,27 +109,53 @@ ai-assisted-log-review-demo/
 │   ├── PROJECT_BRIEF.md
 │   ├── WORKFLOW.md
 │   ├── SAMPLE_OUTPUT.md
+│   ├── CHANGELOG.md
+│   │
+│   ├── architecture/
+│   │   └── project_architecture.png
+│   │
 │   └── screenshots/
+│       ├── streamlit_homepage.png
+│       ├── streamlit_report_page.png
+│       ├── mock_api_docs.png
+│       └── sample_output_report.png
 │
-├── README.md
-├── requirements.txt
-├── .env.example
-└── .gitignore
-````
+└── src/
+    ├── app.py
+    ├── streamlit_app_homepage.py
+    ├── reporters.py
+    │
+    ├── api_module/
+    │   ├── __init__.py
+    │   ├── api_client.py
+    │   └── mock_log_api.py
+    │
+    ├── ingest_module/
+    │   ├── __init__.py
+    │   ├── document_loader.py
+    │   ├── ingest_documents.py
+    │   └── vector_store.py
+    │
+    ├── review_module/
+    │   ├── __init__.py
+    │   ├── llm_client.py
+    │   └── reviewer.py
+    │
+    ├── ui_features/
+    │   ├── __init__.py
+    │   └── ui_features.py
+    │
+    └── pages/
+        └── streamlit_report.py
+```
 
 ---
 
 ## How It Works
 
-### 1. Mock Operator Log API
+### 1. Mock Log API
 
-The project includes a mock FastAPI application that simulates an external system containing operator logs.
-
-Example endpoint:
-
-```text
-GET /operator-logs/{log_id}
-```
+The mock API returns fictional operator logs.
 
 Example log entry:
 
@@ -160,57 +171,48 @@ Example log entry:
 }
 ```
 
-In a real environment, this API could be replaced by an internal logging system, ticketing platform, operations database, or compliance review tool.
+In a real environment, this API could be replaced with an internal logging system, ticketing platform, operations database, or compliance review tool.
 
----
+### 2. Reference Document Ingestion
 
-### 2. Compliance Reference Documents
-
-The project includes fictional compliance-style markdown documents.
+The project includes fictional compliance-style markdown documents. These documents are loaded, split into chunks using LangChain document utilities, and stored in ChromaDB.
 
 Example reference categories:
 
-* Communication failure response
-* Emergency procedure activation
-* Event notification requirements
-* Switching and work control documentation
-* Operator logkeeping requirements
-* Alarm review and closeout
+- Communication failure response
+- Emergency procedure activation
+- Event notification requirements
+- Switching and work control documentation
+- Operator logkeeping requirements
+- Alarm review and closeout
 
-These are demo documents only. They are not real regulatory guidance.
+### 3. Vector Retrieval
 
----
-
-### 3. Document Loading and Vector Search
-
-The reference documents are loaded from Markdown files and split into smaller chunks using LangChain document utilities. Those chunks are stored in a local ChromaDB collection.
-
-When a log is reviewed, the log text is used as a search query against the vector database. The most relevant reference chunks are retrieved and passed into the LLM prompt.
-
----
+When a log is reviewed, the log text is used as a query against the vector database. The most relevant reference chunks are retrieved and passed into the LLM prompt.
 
 ### 4. LLM Review
 
 The LLM receives:
 
-* The operator log entry
-* Retrieved reference material
-* A structured review prompt
-* Instructions not to determine compliance or invent facts
+- the selected operator log entry
+- retrieved reference material
+- a structured review prompt
+- instructions not to determine compliance or invent facts
 
 The expected output is structured JSON.
 
----
+### 5. Dashboard and Report Output
 
-### 5. Report Generation
+The Streamlit dashboard displays:
 
-The final review result is written to a JSON file.
+- the selected log
+- the generated review
+- relevant references
+- possible missing information
+- suggested follow-up questions
+- review notes
 
-Example output path:
-
-```text
-data/sample_output/log_review_report.json
-```
+The review can also be written to JSON.
 
 ---
 
@@ -219,11 +221,11 @@ data/sample_output/log_review_report.json
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/ai-assisted-log-review-demo.git
-cd ai-assisted-log-review-demo
+git clone https://github.com/your-username/ai-assisted-log-reviewer-demo.git
+cd ai-assisted-log-reviewer-demo
 ```
 
-### 2. Create a virtual environment
+### 2. Create and activate a virtual environment
 
 ```bash
 python -m venv venv
@@ -243,13 +245,25 @@ source venv/bin/activate
 
 ### 3. Install dependencies
 
+This project uses `pyproject.toml` for dependency management.
+
+```bash
+pip install -e .
+```
+
+If you maintain a separate `requirements.txt`, you can instead run:
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Create a local `.env` file
+Use one dependency source consistently to avoid drift.
 
-Copy the example file:
+---
+
+## Environment Setup
+
+Copy the example environment file:
 
 ```bash
 cp .env.example .env
@@ -263,12 +277,6 @@ Copy-Item .env.example .env
 
 Then open `.env` and add your OpenAI API key.
 
----
-
-## Environment Variables
-
-The project uses environment variables for API keys and configuration.
-
 Example `.env.example`:
 
 ```env
@@ -276,7 +284,7 @@ OPENAI_API_KEY=your_openai_api_key_here
 OPENAI_MODEL=gpt-4.1-mini
 EMBEDDING_MODEL=text-embedding-3-small
 CHROMA_COLLECTION_NAME=operator-log-references
-CHROMA_PERSIST_DIR=chroma_db
+CHROMA_PERSIST_DIR=data/chroma_db
 MOCK_API_BASE_URL=http://127.0.0.1:8000
 ```
 
@@ -286,12 +294,14 @@ Do not commit your real `.env` file to GitHub.
 
 ## Usage
 
-This project runs in two terminals.
+This project has three main steps.
 
-### Terminal 1: Start the mock log API
+### Step 1: Start the mock log API
+
+From the project root:
 
 ```bash
-uvicorn src.mock_log_api:app --reload
+uvicorn src.api_module.mock_log_api:app --reload
 ```
 
 The mock API will be available at:
@@ -308,26 +318,48 @@ http://127.0.0.1:8000/docs
 
 ---
 
-### Terminal 2: Run the log review workflow
+### Step 2: Ingest reference documents
 
-Example:
+Before running reviews, load the reference documents into ChromaDB:
+
+```bash
+python src/ingest_module/ingest_documents.py \
+  --docs-dir data/compliance_references \
+  --reset
+```
+
+This command loads the markdown reference documents, chunks them, and stores them in the local vector database.
+
+---
+
+### Step 3A: Run the Streamlit dashboard
+
+```bash
+streamlit run src/streamlit_app_homepage.py
+```
+
+The dashboard lets a user:
+
+- view available operator logs
+- select a log for review
+- run the AI-assisted review workflow
+- view the generated report
+- inspect suggested missing information and follow-up questions
+
+---
+
+### Step 3B: Run the CLI workflow
+
+The project can also be run from the command line:
 
 ```bash
 python src/app.py \
   --log-id LOG-1001 \
   --endpoint operator-logs \
-  --docs-dir data/compliance_references \
   --output data/sample_output/log_review_report.json
 ```
 
-This command:
-
-1. Fetches log `LOG-1001` from the mock API.
-2. Loads local compliance reference documents.
-3. Indexes the documents in ChromaDB.
-4. Retrieves relevant reference sections.
-5. Sends the log and retrieved context to the LLM.
-6. Writes a structured review report to JSON.
+The CLI workflow fetches the selected log, retrieves relevant reference material, calls the LLM review workflow, and writes the output to JSON.
 
 ---
 
@@ -335,7 +367,6 @@ This command:
 
 ```text
 Fetching operator log...
-Loading and indexing reference documents...
 Retrieving relevant references...
 Reviewing log entry...
 Writing review report...
@@ -349,8 +380,6 @@ Output file: data/sample_output/log_review_report.json
 ---
 
 ## Example Output
-
-Example review output:
 
 ```json
 {
@@ -384,21 +413,43 @@ Example review output:
 }
 ```
 
+---
+
+## Screenshots
+
+Recommended screenshots:
+
+```text
+docs/screenshots/streamlit_homepage.png
+docs/screenshots/streamlit_report_page.png
+docs/screenshots/mock_api_docs.png
+docs/screenshots/sample_output_report.png
+```
+
+Suggested placement in GitHub:
+
+```markdown
+![Streamlit homepage](docs/screenshots/streamlit_homepage.png)
+
+![Generated review report](docs/screenshots/streamlit_report_page.png)
+```
+
+---
 
 ## Business Use Cases
 
 This pattern could be adapted for:
 
-* Operator log review
-* Compliance documentation support
-* Incident report review
-* Maintenance log review
-* Alarm review documentation
-* Internal procedure reference search
-* Shift turnover review
-* Corrective action intake
-* Audit preparation support
-* SOP/documentation gap analysis
+- Operator log review
+- Compliance documentation support
+- Incident report review
+- Maintenance log review
+- Alarm review documentation
+- Internal procedure reference search
+- Shift turnover review
+- Corrective action intake
+- Audit preparation support
+- SOP/documentation gap analysis
 
 ---
 
@@ -406,15 +457,15 @@ This pattern could be adapted for:
 
 This project demonstrates my ability to:
 
-* Build and consume a mock API
-* Load and process operational log data
-* Structure a retrieval-augmented generation workflow
-* Use a vector database for reference retrieval
-* Integrate an LLM into a practical business workflow
-* Build human-in-the-loop AI tools
-* Produce structured JSON outputs
-* Keep AI responses grounded in retrieved reference material
-* Design AI tools that support review rather than replace human judgment
+- Build and consume a mock API
+- Create a document ingestion workflow
+- Use vector search for reference retrieval
+- Build a retrieval-augmented generation workflow
+- Integrate an LLM into a practical business process
+- Package an AI workflow into a Streamlit dashboard
+- Produce structured JSON review output
+- Design human-in-the-loop AI tools
+- Keep AI responses grounded in retrieved reference material
 
 ---
 
@@ -430,11 +481,11 @@ The goal was to build a prototype AI workflow that retrieves relevant reference 
 
 ### Action
 
-I built a Python application that pulls a log entry from a mock API, loads markdown reference documents, stores searchable document chunks in ChromaDB, retrieves relevant context, sends the log and context to an LLM, and writes a structured JSON review report.
+I built a Python application that pulls log entries from a mock API, loads markdown reference documents, stores searchable document chunks in ChromaDB, retrieves relevant context, sends the log and context to an LLM, and displays the structured review result in a Streamlit dashboard.
 
 ### Result
 
-The project demonstrates how retrieval-augmented generation can support operational documentation review by surfacing relevant references, possible missing information, and follow-up questions.
+The project demonstrates how retrieval-augmented generation can support operational documentation review by surfacing relevant references, possible missing information, suggested follow-up questions, and review notes.
 
 ---
 
@@ -452,17 +503,14 @@ The purpose of the project is to demonstrate a human-in-the-loop AI workflow for
 
 Potential enhancements include:
 
-* Add batch review for multiple logs
-* Add a Streamlit or FastAPI frontend
-* Add confidence scoring for retrieved references
-* Add source chunk citations in the output
-* Add improved document chunking and metadata extraction
-* Add automated tests for document loading and retrieval
-* Add retry/error handling for LLM responses
-* Add JSON schema validation for model output
-* Add support for PDF reference documents
-* Add a separate indexing command for reference documents
-* Add review history storage
-* Add export to Markdown or Excel
-
-````
+- Add batch review for multiple logs
+- Add source chunk citations in the output
+- Add improved document chunking and metadata extraction
+- Add automated tests for document loading and retrieval
+- Add retry/error handling for LLM responses
+- Add JSON schema validation for model output
+- Add support for PDF reference documents
+- Add review history storage
+- Add export to Markdown or Excel
+- Add Docker support for local multi-service execution
+- Add webhook-triggered review workflow
