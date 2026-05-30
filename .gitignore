@@ -37,6 +37,7 @@ htmlcov/
 .ipynb_checkpoints/
 
 # Local vector database / embeddings storage
+data/chroma_db/
 chroma_db/
 chroma/
 .vector_store/
@@ -47,3 +48,7 @@ faiss_index/
 # Logs
 *.log
 logs/
+
+#toml
+pyproject.toml
+
