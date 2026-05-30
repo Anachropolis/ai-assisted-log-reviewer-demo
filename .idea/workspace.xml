@@ -4,8 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9ab6ef4-ef30-4bd6-b427-c766d8ee2410" name="Changes" comment="add README and workflow documentation for AI log review demo&quot;">
-      <change beforePath="$PROJECT_DIR$/src/mock_log_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/mock_log_api.py" afterDir="false" />
+    <list default="true" id="e9ab6ef4-ef30-4bd6-b427-c766d8ee2410" name="Changes" comment="update README.md docs/">
+      <change afterPath="$PROJECT_DIR$/docs/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api_module/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ingest_module/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/streamlit_report.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/review_module/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/streamlit_app_homepage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_features/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui_features/ui_features.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ai-assisted-log-reviewer-demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ai-assisted-log-reviewer-demo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/PROJECT_BRIEF.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/PROJECT_BRIEF.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/api_module/api_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/document_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ingest_module/document_loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/llm_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/review_module/llm_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mock_log_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/api_module/mock_log_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reviewer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/review_module/reviewer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vector_store.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ingest_module/vector_store.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,25 +60,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.api_client.executor&quot;: &quot;Run&quot;,
-    &quot;Python.app.executor&quot;: &quot;Run&quot;,
-    &quot;Python.document_loader.executor&quot;: &quot;Run&quot;,
-    &quot;Python.llm_client.executor&quot;: &quot;Run&quot;,
-    &quot;Python.mock_log_api.executor&quot;: &quot;Run&quot;,
-    &quot;Python.vector_store.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.__init__.executor": "Run",
+    "Python.api_client.executor": "Run",
+    "Python.app.executor": "Run",
+    "Python.document_loader.executor": "Run",
+    "Python.llm_client.executor": "Run",
+    "Python.mock_log_api.executor": "Run",
+    "Python.streamlit_app.executor": "Run",
+    "Python.streamlit_app_homepage.executor": "Run",
+    "Python.streamlit_report.executor": "Debug",
+    "Python.vector_store.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\adamh\PycharmProjects\ai-assisted-log-reviewer-demo\docs" />
       <recent name="C:\Users\adamh\PycharmProjects\ai-assisted-log-reviewer-demo\data" />
+      <recent name="C:\Users\adamh\PycharmProjects\ai-assisted-log-reviewer-demo\src\ui_features" />
+      <recent name="C:\Users\adamh\PycharmProjects\ai-assisted-log-reviewer-demo\src\review_module" />
+      <recent name="C:\Users\adamh\PycharmProjects\ai-assisted-log-reviewer-demo\src\ingest_module" />
+      <recent name="C:\Users\adamh\PycharmProjects\ai-assisted-log-reviewer-demo\src\api_module" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -182,7 +207,55 @@
       <option name="project" value="LOCAL" />
       <updated>1779320866381</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="add screenshots">
+      <option name="closed" value="true" />
+      <created>1779321859577</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1779321859577</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add functionality to query entire log list">
+      <option name="closed" value="true" />
+      <created>1779547852058</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1779547852058</updated>
+    </task>
+    <task id="LOCAL-00016" summary="fix: minor refactor">
+      <option name="closed" value="true" />
+      <created>1779548126125</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1779548126125</updated>
+    </task>
+    <task id="LOCAL-00017" summary="add src pages pyproject.toml">
+      <option name="closed" value="true" />
+      <created>1780165694783</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1780165694783</updated>
+    </task>
+    <task id="LOCAL-00018" summary="add src pages pyproject.toml">
+      <option name="closed" value="true" />
+      <created>1780165913688</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1780165913688</updated>
+    </task>
+    <task id="LOCAL-00019" summary="update README.md docs/">
+      <option name="closed" value="true" />
+      <created>1780167757126</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1780167757126</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -204,10 +277,14 @@
     <MESSAGE value="feat: add logic to reviewer" />
     <MESSAGE value="feat: added preliminary logic for main app module" />
     <MESSAGE value="fix: refactor code so vector retrieval produces list of dictionaries" />
-    <MESSAGE value="fix: minor refactor" />
     <MESSAGE value="feat: add main cli logic" />
     <MESSAGE value="fix: major refactor of all project modules" />
     <MESSAGE value="add README and workflow documentation for AI log review demo&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="add README and workflow documentation for AI log review demo&quot;" />
+    <MESSAGE value="add screenshots" />
+    <MESSAGE value="add functionality to query entire log list" />
+    <MESSAGE value="fix: minor refactor" />
+    <MESSAGE value="add src pages pyproject.toml" />
+    <MESSAGE value="update README.md docs/" />
+    <option name="LAST_COMMIT_MESSAGE" value="update README.md docs/" />
   </component>
 </project>

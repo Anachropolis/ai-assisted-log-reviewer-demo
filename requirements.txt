@@ -1,9 +1,0 @@
-fastapi
-uvicorn
-requests
-pandas
-openai
-python-dotenv
-chromadb
-pydantic
-langchain_text_splitters
