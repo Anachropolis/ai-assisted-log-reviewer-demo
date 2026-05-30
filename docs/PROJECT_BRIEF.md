@@ -5,9 +5,16 @@
 
 AI-Assisted Operator Log Review Demo
 
+
 ## Project Type
 
 Python AI workflow / RAG demo / operational documentation support
+
+## Current Version
+
+The current version includes both a command-line workflow and a Streamlit dashboard.
+
+The dashboard allows a reviewer to select an operator log, view retrieved reference material, run the AI-assisted review, and download the generated report.
 
 ## Target User
 
