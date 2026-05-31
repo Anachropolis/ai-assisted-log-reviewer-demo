@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9ab6ef4-ef30-4bd6-b427-c766d8ee2410" name="Changes" comment="add screenshots">
+    <list default="true" id="e9ab6ef4-ef30-4bd6-b427-c766d8ee2410" name="Changes" comment="minor refactor">
+      <change afterPath="$PROJECT_DIR$/tests/test_document_loader.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_reporters.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/test_reviewer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ingest_module/vector_store.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ingest_module/vector_store.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +58,9 @@
     "Python.streamlit_app.executor": "Run",
     "Python.streamlit_app_homepage.executor": "Run",
     "Python.streamlit_report.executor": "Debug",
+    "Python.test_document_loader.executor": "Run",
+    "Python.test_reporters.executor": "Run",
+    "Python.test_reviewer.executor": "Run",
     "Python.vector_store.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -287,7 +292,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780168281971</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="minor refactor">
+      <option name="closed" value="true" />
+      <created>1780169638667</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1780169638667</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -322,6 +335,7 @@
     <MESSAGE value="update PROJECT_BRIEF" />
     <MESSAGE value="remove requirements.txt" />
     <MESSAGE value="add screenshots" />
-    <option name="LAST_COMMIT_MESSAGE" value="add screenshots" />
+    <MESSAGE value="minor refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor refactor" />
   </component>
 </project>
