@@ -19,7 +19,7 @@ class VectorStore:
 
 
     def vectorize_data(self, documents: dict) -> None:
-        """Convert data into vector format and store in DB"""
+        """Converts data into vector format and store in DB"""
         self.collection.add(documents=documents["content"],
                             metadatas=documents["metadata"],
                             ids=documents["ids"])
@@ -27,7 +27,7 @@ class VectorStore:
 
 
     def retrieve_relevant_references(self, query: str, top_k: int = 3) -> list[dict]:
-        """Retrieve relevant references from a query"""
+        """Retrieves relevant references from a query"""
         results = self.collection.query(query_texts = query,
                                         n_results = top_k)
         references = []
@@ -47,7 +47,7 @@ class VectorStore:
 
 
     def reset_collection(self) -> None:
-        """Reset collection"""
+        """Resets collection"""
         collection_name = os.getenv("CHROMA_COLLECTION_NAME", "compliance_references")
         try:
             self.client.delete_collection(collection_name)

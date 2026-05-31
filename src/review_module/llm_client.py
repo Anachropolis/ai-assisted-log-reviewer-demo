@@ -20,7 +20,7 @@ class LLMClient:
 
 
     def query_model(self, system_prompt: str, user_prompt: str) -> str:
-        """Generate JSON response from system + user prompt"""
+        """Generates JSON response from system + user prompt"""
         response = self.client.chat.completions.create(
             model = self.model,
             messages = [{"role": "system","content": system_prompt}, {"role": "user","content": user_prompt}],

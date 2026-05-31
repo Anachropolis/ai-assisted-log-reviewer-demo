@@ -14,7 +14,7 @@ class DocumentLoader:
         self.markdown_splitter = MarkdownHeaderTextSplitter(headers_to_split_on=HEADERS)
 
     def run(self, document_path: Path) -> dict:
-
+        """Takes a reference document and splits it into chunks according to the headers"""
         with open(document_path, encoding="utf-8") as file:
             document_text = file.read().rstrip()
 

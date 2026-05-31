@@ -34,6 +34,7 @@ Content:
 
 
 def build_review_prompt(log_entry: dict, retrieved_references: list[dict]) -> str:
+    """Constructs prompt for LLM"""
     context = format_retrieved_context(retrieved_references)
 
     return f"""
@@ -72,7 +73,7 @@ class LogReviewer:
         self.llm_client = llm_client
 
     def review_log_entry(self, log_entry: dict, retrieved_references: list[dict]) -> dict:
-        """Take log entry and relevant references and feed to AI for review"""
+        """Takes a log entry and relevant references and feed to LLM for review"""
         user_prompt = build_review_prompt(log_entry, retrieved_references)
         response = self.llm_client.query_model(system_prompt = SYSTEM_PROMPT, user_prompt = user_prompt)
         return json.loads(response)
