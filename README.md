@@ -103,7 +103,8 @@ ai-assisted-log-reviewer-demo/
 │   │   └── switching_and_work_control.md
 │   │
 │   └── sample_output/
-│       └── sample_log_review_report.json
+│       └──  sample_log_review_report.json
+│  
 │
 ├── docs/
 │   ├── PROJECT_BRIEF.md
@@ -120,33 +121,39 @@ ai-assisted-log-reviewer-demo/
 │       ├── mock_api_docs.png
 │       └── sample_output_report.png
 │
-└── src/
-    ├── app.py
-    ├── streamlit_app_homepage.py
-    ├── reporters.py
-    │
-    ├── api_module/
-    │   ├── __init__.py
-    │   ├── api_client.py
-    │   └── mock_log_api.py
-    │
-    ├── ingest_module/
-    │   ├── __init__.py
-    │   ├── document_loader.py
-    │   ├── ingest_documents.py
-    │   └── vector_store.py
-    │
-    ├── review_module/
-    │   ├── __init__.py
-    │   ├── llm_client.py
-    │   └── reviewer.py
-    │
-    ├── ui_features/
-    │   ├── __init__.py
-    │   └── ui_features.py
-    │
-    └── pages/
-        └── streamlit_report.py
+├── src/
+│   ├── app.py
+│   ├── streamlit_app_homepage.py
+│   ├── reporters.py
+│   │
+│   ├── api_module/
+│   │   ├── __init__.py
+│   │   ├── api_client.py
+│   │   └── mock_log_api.py
+│   │
+│   ├── ingest_module/
+│   │   ├── __init__.py
+│   │   ├── document_loader.py
+│   │   ├── ingest_documents.py
+│   │   └── vector_store.py
+│   │
+│   ├── review_module/
+│   │   ├── __init__.py
+│   │   ├── llm_client.py
+│   │   └── reviewer.py
+│   │
+│   ├── ui_features/
+│   │   ├── __init__.py
+│   │   └── ui_features.py
+│   │
+│   └── pages/
+│       └── streamlit_report.py
+│
+└── tests/
+    ├── test_document_loader.py
+    ├── test_reviewer.py
+    └── test_reporters.py
+
 ```
 
 ---
@@ -414,27 +421,19 @@ Output file: data/sample_output/log_review_report.json
 ```
 
 ---
+## Running Tests
 
-## Screenshots
+Install development dependencies:
 
-Recommended screenshots:
-
-```text
-docs/screenshots/streamlit_homepage.png
-docs/screenshots/streamlit_report_page.png
-docs/screenshots/mock_api_docs.png
-docs/screenshots/sample_output_report.png
+```bash
+pip install -e ".[dev]"
 ```
 
-Suggested placement in GitHub:
-
-```markdown
-![Streamlit homepage](docs/screenshots/streamlit_homepage.png)
-
-![Generated review report](docs/screenshots/streamlit_report_page.png)
+Perform test:
+```bash
+pytest
 ```
-
----
+___
 
 ## Business Use Cases
 
@@ -514,3 +513,7 @@ Potential enhancements include:
 - Add export to Markdown or Excel
 - Add Docker support for local multi-service execution
 - Add webhook-triggered review workflow
+
+
+
+
